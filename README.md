@@ -27,7 +27,7 @@ This website is built with modern web technologies:
 - **Frontend**: React 18 + TypeScript
 - **Styling**: Tailwind CSS + shadcn/ui components
 - **Build Tool**: Vite
-- **Deployment**: Optimized for production
+- **Deployment**: GitHub Pages with automatic CI/CD
 
 ## 🚀 Getting Started
 
@@ -46,6 +46,12 @@ npm run build
 # Preview production build
 npm run preview
 ```
+
+### Live Demo
+
+🌐 **View the live website**: [Indo Air Aviation Academy](https://upendra8530.github.io/indo-air-aviation/)
+
+The website is automatically deployed to GitHub Pages whenever changes are pushed to the main branch.
 
 ### Available Scripts
 
