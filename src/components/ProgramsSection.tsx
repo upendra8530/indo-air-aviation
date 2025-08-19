@@ -52,7 +52,7 @@ const programs = [
 
 const ProgramsSection = () => {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-background ">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
@@ -82,7 +82,7 @@ const ProgramsSection = () => {
                   <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                     {program.title}
                   </h3>
-                  <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-[12px] whitespace-nowrap font-semibold">
                     {program.duration}
                   </span>
                 </div>

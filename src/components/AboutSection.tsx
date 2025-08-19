@@ -67,8 +67,8 @@ const AboutSection = () => {
               alt="Modern aviation training facility with flight simulators"
               className="rounded-2xl shadow-elegant w-full"
             />
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-card">
-              <div className="text-3xl font-bold text-primary mb-2">15+</div>
+            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-card border-2 border-transparent hover:border-yellow-400/30 transition-all duration-300">
+              <div className="text-3xl font-bold text-gradient-gold mb-2">15+</div>
               <div className="text-muted-foreground">Years of Excellence</div>
             </div>
           </div>

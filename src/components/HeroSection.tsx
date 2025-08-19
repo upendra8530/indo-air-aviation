@@ -3,7 +3,7 @@ import heroImage from "@/assets/hero-aviation.jpg";
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-[105px]">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-[240px] pb-[80px]">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -18,7 +18,7 @@ const HeroSection = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
         <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
           Soar to New Heights with{" "}
-          <span className="bg-gradient-to-r from-white to-accent bg-clip-text text-transparent drop-shadow-lg">Indo Air Aviation Academy</span>
+          <span className="text-gradient-gold drop-shadow-lg">Indo Air Aviation Academy</span>
         </h1>
         <p className="text-xl lg:text-2xl text-white mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
           Premier aviation training institute empowering the next generation of pilots, cabin crew, 

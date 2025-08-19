@@ -1,5 +1,6 @@
 
 import { Twitter, Facebook, Linkedin, Instagram, MapPin, Phone, Mail, Clock } from "lucide-react";
+import logoImage from "@/assets/indo-air-aviation-logo-removebg-preview.png";
 
 const Footer = () => {
   return (
@@ -8,9 +9,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="md:col-span-1">
-            <h3 className="text-2xl font-bold mb-4 text-white">
-              Indo Air Aviation Academy
-            </h3>
+            <div className="flex items-center mb-4">
+              <img src={logoImage} alt="Indo Air Aviation Academy Logo" className="h-16 w-auto object-contain mr-4" />
+              <h3 className="text-xl font-bold text-white">
+                Indo Air Aviation Academy
+              </h3>
+            </div>
             <p className="text-white/80 mb-6 leading-relaxed">
               Leading aviation training institute empowering the next generation of aviation professionals. 
               Transform your passion for flight into a successful career with industry-relevant training and guaranteed job placement.

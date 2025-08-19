@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
-import logoImage from "@/assets/logo.jpeg";
+import logoImage from "@/assets/indo-air-aviation-logo-removebg-preview.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,16 +37,21 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${
       isScrolled 
         ? 'bg-primary/95 backdrop-blur-sm shadow-lg' 
-        : 'bg-primary'
+        : 'bg-transparent'
     }`}>
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between py-2">
-          {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <img src={logoImage} alt="Indo Air Aviation Academy Logo" className="w-[100px] sm:w-[120px] lg:w-[140px] object-contain rounded-lg transition-all duration-300" />
+        <div className="flex items-center justify-between py-1 relative z-50">
+          {/* Logo - Hanging below header */}
+          <div className="relative flex items-center space-x-3 absolute bottom-0 left-0">
+            <img 
+              src={logoImage} 
+              alt="Indo Air Aviation Academy Logo" 
+              className="h-[120px] sm:h-[140px] lg:h-[160px] w-auto object-contain transition-all duration-300 relative z-50 drop-shadow-lg"
+              
+            />
           </div>
 
           {/* Desktop Navigation */}
