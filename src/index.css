@@ -153,15 +153,20 @@
     @apply py-20 px-6 lg:px-8;
   }
   
-  /* Card hover effects */
+  /* Card hover effects - Enhanced */
   .program-card {
-    @apply bg-card rounded-2xl p-8 hover:-translate-y-2 border border-border/50;
+    @apply bg-card rounded-2xl p-8 hover:-translate-y-3 hover:scale-[1.02] border border-border/50 cursor-pointer;
     box-shadow: var(--shadow-card);
-    transition: var(--transition-smooth);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   
   .program-card:hover {
-    box-shadow: var(--shadow-elegant);
+    box-shadow: 0 20px 40px -10px hsl(240, 100%, 9%, 0.25);
+    border-color: hsl(var(--primary) / 0.2);
+  }
+  
+  .program-card:hover .program-card-content {
+    transform: translateY(-4px);
   }
   
   /* Testimonial cards */
@@ -183,6 +188,51 @@
   /* Animated underlines */
   .animated-underline {
     @apply relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  /* Pulse animation for CTAs */
+  .pulse-glow {
+    animation: pulseGlow 2s infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(0, 1, 46, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(0, 1, 46, 0.6), 0 0 40px rgba(0, 1, 46, 0.3);
+    }
+  }
+
+  /* Floating animation */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Stagger animation for cards */
+  .stagger-animation {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: staggerIn 0.8s ease-out forwards;
+  }
+
+  .stagger-animation:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-animation:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-animation:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-animation:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-animation:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-animation:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes staggerIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 

@@ -66,7 +66,7 @@ const ProgramsSection = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {programs.map((program, index) => (
-            <div key={index} className="program-card group">
+            <div key={index} className="program-card group stagger-animation">
               {program.image && (
                 <div className="mb-6 overflow-hidden rounded-xl">
                   <img 
@@ -77,7 +77,7 @@ const ProgramsSection = () => {
                 </div>
               )}
               
-              <div className="mb-4">
+              <div className="mb-4 program-card-content transition-transform duration-300">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                     {program.title}

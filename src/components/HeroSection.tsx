@@ -26,11 +26,11 @@ const HeroSection = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <Button className="btn-hero">
-            Enroll Now
+          <Button className="btn-hero pulse-glow">
+            🚀 Enroll Now - Next Batch Starts Soon!
           </Button>
-          <Button className="btn-secondary">
-            Request Information
+          <Button className="btn-secondary hover:scale-105 transition-all duration-300">
+            📋 Request Free Brochure
           </Button>
         </div>
         

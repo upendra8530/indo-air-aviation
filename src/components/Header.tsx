@@ -1,10 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logoImage from "@/assets/logo.jpeg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Smooth scroll function
   const scrollToSection = (sectionId: string) => {
@@ -26,12 +37,16 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-primary/95 backdrop-blur-sm shadow-lg' 
+        : 'bg-primary'
+    }`}>
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between py-2">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img src={logoImage} alt="Indo Air Aviation Academy Logo" className="w-[140px] object-contain rounded-lg" />
+            <img src={logoImage} alt="Indo Air Aviation Academy Logo" className="w-[100px] sm:w-[120px] lg:w-[140px] object-contain rounded-lg transition-all duration-300" />
           </div>
 
           {/* Desktop Navigation */}
@@ -70,12 +85,12 @@ const Header = () => {
 
           {/* Contact Info & CTA */}
           <div className="hidden lg:flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-sm text-flex items-center space-x-2 text-sm">
+            <div className="flex items-center space-x-2 text-sm text-white">
               <Phone className="w-4 h-4 text-white" />
-              <span>7727057928</span>
+              <span className="text-white">7727057928</span>
             </div>
-            <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Enroll Now
+            <Button size="sm" className="bg-white text-primary hover:bg-white/90 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              🚀 Enroll Now - Limited Seats!
             </Button>
           </div>
 
@@ -127,8 +142,8 @@ const Header = () => {
                   <Phone className="w-4 h-4 text-white" />
                   <span className="text-white">7727057928</span>
                 </div>
-                <Button size="sm" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Enroll Now
+                <Button size="sm" className="w-full bg-white text-primary hover:bg-white/90 font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                  🚀 Enroll Now - Limited Seats!
                 </Button>
               </div>
             </nav>
