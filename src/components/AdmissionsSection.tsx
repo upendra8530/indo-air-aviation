@@ -100,9 +100,7 @@ const AdmissionsSection = () => {
             <div className="mt-6 pt-6 border-t border-border text-center">
               <p className="text-sm text-muted-foreground">
                 Need help? Contact our admissions team at{" "}
-                <a href="tel:+91-9876543210" className="text-primary font-semibold hover:underline">
-                  +91-9876543210
-                </a>
+                <a href="tel:+91-7727057928" className="text-primary font-semibold hover:underline"> +91-7727057928 </a>
               </p>
             </div>
           </div>
