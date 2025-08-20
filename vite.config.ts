@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/indo-air-aviation/',  // <-- important for GitHub Pages
+  base: '/',  // <-- updated for custom domain
 
   server: {
     host: "::",
