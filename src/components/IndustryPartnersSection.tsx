@@ -11,13 +11,13 @@ const partners = [
 
 const IndustryPartnersSection = () => {
   return (
-    <section className="section-padding bg-background">
+    <section className="pt-0 pb-8 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
+        <div className="text-center mb-6 md:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 text-foreground">
             Industry <span className="text-gradient">Partnerships</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="md:text-xl text-base text-muted-foreground max-w-3xl mx-auto">
             Strong partnerships with leading airlines and airports ensure excellent job placement 
             opportunities and industry-relevant training for our students.
           </p>
@@ -33,33 +33,33 @@ const IndustryPartnersSection = () => {
         </div>
         
         {/* Job Placement Stats */}
-        <div className="bg-gradient-to-r from-primary to-primary-glow rounded-3xl p-12 text-white text-center">
-          <h3 className="text-3xl lg:text-4xl font-bold mb-8">
+        <div className="bg-gradient-to-r from-primary to-primary-glow rounded-3xl p-8 md:p-12 text-white text-center">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-8">
             Exceptional Job Placement Record
           </h3>
           
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <div className="text-5xl font-bold mb-3">95%</div>
-              <div className="text-xl text-white/90">Job Placement Rate</div>
-              <p className="text-white/80 mt-2">Within 6 months of graduation</p>
+              <div className="text-2xl md:text-3xl lg:text-5xl font-bold mb-3">95%</div>
+              <div className="text-lg md:text-xl text-white/90">Job Placement Rate</div>
+              <p className="text-sm md:text-base text-white/80 mt-2">Within 6 months of graduation</p>
             </div>
             
             <div>
-              <div className="text-5xl font-bold mb-3">₹4.5L</div>
-              <div className="text-xl text-white/90">Average Starting Salary</div>
-              <p className="text-white/80 mt-2">For our graduates</p>
+              <div className="text-2xl md:text-3xl lg:text-5xl font-bold mb-3">₹4.5L</div>
+              <div className="text-lg md:text-xl text-white/90">Average Starting Salary</div>
+              <p className="text-sm md:text-base text-white/80 mt-2">For our graduates</p>
             </div>
             
             <div>
-              <div className="text-5xl font-bold mb-3">50+</div>
-              <div className="text-xl text-white/90">Partner Organizations</div>
-              <p className="text-white/80 mt-2">Across airlines and airports</p>
+              <div className="text-2xl md:text-3xl lg:text-5xl font-bold mb-3">50+</div>
+              <div className="text-lg md:text-xl text-white/90">Partner Organizations</div>
+              <p className="text-sm md:text-base text-white/80 mt-2">Across airlines and airports</p>
             </div>
           </div>
           
-          <div className="mt-12">
-            <h4 className="text-2xl font-bold mb-6">Career Opportunities Include:</h4>
+          <div className="mt-6 md:mt-12">
+            <h4 className="text-xl md:text-2xl font-bold mb-6">Career Opportunities Include:</h4>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
               <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
                 <h5 className="font-semibold mb-2">✈️ Flight Operations</h5>

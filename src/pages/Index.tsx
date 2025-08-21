@@ -13,32 +13,32 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section id="home" className="pt-16">
+      <section id="home" className="md:pt-16 pt-8">
         <HeroSection />
       </section>
       
       {/* About Section */}
-      <section id="about" className="pt-16">
+      <section id="about" className="md:pt-16 pt-8">
         <AboutSection />
       </section>
       
       {/* Programs Section */}
-      <section id="programs" className="pt-16">
+      <section id="programs" className="md:pt-16 pt-8">
         <ProgramsSection />
       </section>
       
       {/* Testimonials Section */}
-      <section id="testimonials" className="pt-16">
+      <section id="testimonials" className="md:pt-16 pt-8">
         <TestimonialsSection />
       </section>
       
       {/* Industry Partners Section */}
-      <section id="partners" className="pt-16">
-        <IndustryPartnersSection />
+      <section id="partners" className="md:pt-16 pt-8">
+          <IndustryPartnersSection />
       </section>
       
       {/* Admissions Section */}
-      <section id="contact" className="pt-16">
+      <section id="contact" className="md:pt-16 pt-8">
         <AdmissionsSection />
       </section>
       

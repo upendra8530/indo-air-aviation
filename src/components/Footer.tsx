@@ -5,13 +5,13 @@ import logoImage from "@/assets/indo-air-aviation-logo-removebg-preview.png";
 const Footer = () => {
   return (
     <footer className="bg-navy-blue text-white">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-3 gap-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Company Info */}
           <div className="md:col-span-1">
-            <div className="flex items-center mb-4">
-              <img src={logoImage} alt="Indo Air Aviation Academy Logo" className="h-16 w-auto object-contain mr-4" />
-              <h3 className="text-xl font-bold text-white">
+            <div className="flex items-center mb-3 md:mb-4">
+              <img src={logoImage} alt="Indo Air Aviation Academy Logo" className="h-12 md:h-16 w-auto object-contain mr-3 md:mr-4" />
+              <h3 className="text-lg md:text-xl font-bold text-white">
                 Indo Air Aviation Academy
               </h3>
             </div>
@@ -19,20 +19,6 @@ const Footer = () => {
               Leading aviation training institute empowering the next generation of aviation professionals. 
               Transform your passion for flight into a successful career with industry-relevant training and guaranteed job placement.
             </p>
-            <div className="flex space-x-4">
-              <a href="https://twitter.com/indoairaviation" className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-primary hover:scale-110 transition-all duration-300 group shadow-lg">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="https://facebook.com/indoairaviation" className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-primary hover:scale-110 transition-all duration-300 group shadow-lg">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="https://linkedin.com/company/indoairaviation" className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-primary hover:scale-110 transition-all duration-300 group shadow-lg">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="https://instagram.com/indoairaviation" className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-primary hover:scale-110 transition-all duration-300 group shadow-lg">
-                <Instagram className="w-5 h-5" />
-              </a>
-            </div>
           </div>
           
           {/* Quick Links */}
@@ -41,27 +27,27 @@ const Footer = () => {
             <ul className="space-y-3 text-white/80">
               <li className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-white rounded-full flex-shrink-0 opacity-60"></div>
-                <a href="#programs" className="hover:text-white hover:translate-x-1 transition-all duration-300 cursor-pointer">Aviation Management</a>
+                <a href="#programs" className="text-sm md:text-base hover:text-white hover:translate-x-1 transition-all duration-300 cursor-pointer">Aviation Management</a>
               </li>
               <li className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-white rounded-full flex-shrink-0 opacity-60"></div>
-                <a href="#programs" className="hover:text-white hover:translate-x-1 transition-all duration-300 cursor-pointer">Cabin Crew Training</a>
+                <a href="#programs" className="text-sm md:text-base hover:text-white hover:translate-x-1 transition-all duration-300 cursor-pointer">Cabin Crew Training</a>
               </li>
               <li className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-white rounded-full flex-shrink-0 opacity-60"></div>
-                <a href="#programs" className="hover:text-white hover:translate-x-1 transition-all duration-300 cursor-pointer">Ground Services</a>
+                <a href="#programs" className="text-sm md:text-base hover:text-white hover:translate-x-1 transition-all duration-300 cursor-pointer">Ground Services</a>
               </li>
               <li className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-white rounded-full flex-shrink-0 opacity-60"></div>
-                <a href="#programs" className="hover:text-white hover:translate-x-1 transition-all duration-300 cursor-pointer">Pilot Training</a>
+                <a href="#programs" className="text-sm md:text-base hover:text-white hover:translate-x-1 transition-all duration-300 cursor-pointer">Pilot Training</a>
               </li>
               <li className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-white rounded-full flex-shrink-0 opacity-60"></div>
-                <a href="#programs" className="hover:text-white hover:translate-x-1 transition-all duration-300 cursor-pointer">Customer Service</a>
+                <a href="#programs" className="text-sm md:text-base hover:text-white hover:translate-x-1 transition-all duration-300 cursor-pointer">Customer Service</a>
               </li>
               <li className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-white rounded-full flex-shrink-0 opacity-60"></div>
-                <a href="#programs" className="hover:text-white hover:translate-x-1 transition-all duration-300 cursor-pointer">Aviation Security</a>
+                <a href="#programs" className="text-sm md:text-base hover:text-white hover:translate-x-1 transition-all duration-300 cursor-pointer">Aviation Security</a>
               </li>
             </ul>
           </div>
@@ -98,8 +84,8 @@ const Footer = () => {
                 </div>
                 <div className="flex-1">
                   <p className="font-medium text-white mb-1">Email</p>
-                  <a href="mailto:info@indoairaviation.edu" className="text-sm hover:text-white transition-colors duration-300 hover:underline">
-                    info@indoairaviation.edu
+                  <a href="mailto:Indoairaviation107@gmail.com" className="text-sm hover:text-white transition-colors duration-300 hover:underline">
+                  Indoairaviation107@gmail.com
                   </a>
                 </div>
               </div>

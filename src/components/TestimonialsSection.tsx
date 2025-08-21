@@ -1,6 +1,6 @@
 const testimonials = [
   {
-    name: "Sarah Johnson",
+    name: "Gamya Mishra",
     role: "Senior Flight Attendant at Emirates",
     image: "👩‍✈️",
     content: "Indo Air Aviation Academy provided me with exceptional training that prepared me for a successful career with Emirates. The practical training and industry connections were invaluable.",
@@ -14,7 +14,7 @@ const testimonials = [
     rating: 5
   },
   {
-    name: "Maria Rodriguez",
+    name: "Neha Sharma",
     role: "Commercial Pilot at IndiGo",
     image: "👩‍✈️",
     content: "The pilot training program with state-of-the-art simulators and experienced instructors helped me achieve my dream of becoming a commercial pilot. Highly recommended!",
@@ -31,26 +31,26 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="section-padding bg-gradient-subtle">
+    <section className="py-4 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-subtle">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
+        <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 text-foreground">
             Success <span className="text-gradient">Stories</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
             Hear from our graduates who have built successful careers in the aviation industry 
             with leading airlines and airports worldwide.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="testimonial-card">
-              <div className="flex items-center mb-6">
-                <div className="text-4xl mr-4">{testimonial.image}</div>
+            <div key={index} className="testimonial-card bg-white rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="flex items-center mb-4 md:mb-6">
+                <div className="text-3xl md:text-4xl mr-3 md:mr-4">{testimonial.image}</div>
                 <div>
-                  <h3 className="text-xl font-bold text-foreground">{testimonial.name}</h3>
-                  <p className="text-primary font-semibold">{testimonial.role}</p>
+                  <h3 className="text-lg md:text-xl font-bold text-foreground">{testimonial.name}</h3>
+                  <p className="text-sm md:text-base text-primary font-semibold">{testimonial.role}</p>
                 </div>
               </div>
               
@@ -62,7 +62,7 @@ const TestimonialsSection = () => {
                 ))}
               </div>
               
-              <p className="text-muted-foreground leading-relaxed italic">
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed italic">
                 "{testimonial.content}"
               </p>
             </div>
@@ -70,12 +70,12 @@ const TestimonialsSection = () => {
         </div>
         
         {/* Industry Experience Section */}
-        <div className="mt-20 text-center">
-          <h3 className="text-3xl font-bold mb-8 text-foreground">
+        <div className="mt-12 md:mt-16 lg:mt-20 text-center">
+          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6 md:mb-8 text-foreground">
             Practical Training Experience
           </h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-card">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div className="bg-white rounded-2xl p-4 md:p-6 lg:p-8 shadow-card">
               <div className="text-primary text-5xl mb-4">✈️</div>
               <h4 className="text-xl font-bold mb-3 text-foreground">Flight Simulations</h4>
               <p className="text-muted-foreground">
@@ -83,7 +83,7 @@ const TestimonialsSection = () => {
               </p>
             </div>
             
-            <div className="bg-white rounded-2xl p-8 shadow-card">
+            <div className="bg-white rounded-2xl p-4 md:p-6 lg:p-8 shadow-card">
               <div className="text-primary text-5xl mb-4">🏢</div>
               <h4 className="text-xl font-bold mb-3 text-foreground">Industry Internships</h4>
               <p className="text-muted-foreground">
@@ -91,7 +91,7 @@ const TestimonialsSection = () => {
               </p>
             </div>
             
-            <div className="bg-white rounded-2xl p-8 shadow-card">
+            <div className="bg-white rounded-2xl p-4 md:p-6 lg:p-8 shadow-card">
               <div className="text-primary text-5xl mb-4">🏆</div>
               <h4 className="text-xl font-bold mb-3 text-foreground">Certification Support</h4>
               <p className="text-muted-foreground">

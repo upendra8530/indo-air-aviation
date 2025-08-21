@@ -1,27 +1,121 @@
 
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
+import { Loader2, Mail, CheckCircle } from "lucide-react";
+import { sendApplicationEmail, ApplicationData } from "@/services/emailService";
+
+// Form validation schema
+const formSchema = z.object({
+  firstName: z.string().min(2, "First name must be at least 2 characters"),
+  lastName: z.string().min(2, "Last name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Phone number must be at least 10 digits").regex(/^[0-9+\-\s\(\)]+$/, "Please enter a valid phone number"),
+  program: z.string().min(1, "Please select a program"),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 const AdmissionsSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { toast } = useToast();
+  
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      program: "",
+    },
+  });
+
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    
+    try {
+      // Prepare application data
+      const applicationData: ApplicationData = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phone: data.phone,
+        program: data.program
+      };
+      
+      // Send email to Indoairaviation107@gmail.com
+      const emailSent = await sendApplicationEmail(applicationData);
+      
+      if (emailSent) {
+        setIsSubmitted(true);
+        
+        toast({
+          title: "Application Submitted Successfully! 🎉",
+          description: "We've received your application and will contact you within 24 hours.",
+          variant: "default",
+        });
+        
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          form.reset();
+        }, 5000);
+      } else {
+        throw new Error("Failed to send email");
+      }
+      
+    } catch (error) {
+      console.error("Submission error:", error);
+      toast({
+        title: "Submission Failed",
+        description: "Something went wrong. Please try again or call us at +91-7727057928.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
-    <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/10">
+    <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 to-accent/10">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
+        <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 text-foreground">
             Ready to <span className="text-gradient">Take Flight?</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
             Start your aviation career journey with Indo Air Aviation Academy. 
             Join thousands of successful graduates who have transformed their passion into profession.
           </p>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start lg:items-center">
           <div>
             <h3 className="text-3xl font-bold mb-8 text-foreground">Admission Process</h3>
             
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                <div className="min-w-8 min-h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
                 <div>
                   <h4 className="text-xl font-semibold text-foreground mb-2">Application Submission</h4>
                   <p className="text-muted-foreground">Complete our online application form with your personal details, educational background, and program preference.</p>
@@ -29,7 +123,7 @@ const AdmissionsSection = () => {
               </div>
               
               <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                <div className="min-w-8 min-h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
                 <div>
                   <h4 className="text-xl font-semibold text-foreground mb-2">Document Verification</h4>
                   <p className="text-muted-foreground">Submit required documents including educational certificates, identity proof, and medical fitness certificate.</p>
@@ -37,7 +131,7 @@ const AdmissionsSection = () => {
               </div>
               
               <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                <div className="min-w-8 min-h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
                 <div>
                   <h4 className="text-xl font-semibold text-foreground mb-2">Entrance Assessment</h4>
                   <p className="text-muted-foreground">Attend our entrance assessment including aptitude test and personal interview to evaluate your suitability.</p>
@@ -45,7 +139,7 @@ const AdmissionsSection = () => {
               </div>
               
               <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
+                <div className="min-w-8 min-h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
                 <div>
                   <h4 className="text-xl font-semibold text-foreground mb-2">Enrollment Confirmation</h4>
                   <p className="text-muted-foreground">Upon successful assessment, complete your enrollment by paying the course fees and joining orientation.</p>
@@ -55,47 +149,148 @@ const AdmissionsSection = () => {
           </div>
           
           <div className="bg-white rounded-3xl p-8 shadow-elegant">
-            <h3 className="text-2xl font-bold mb-6 text-foreground text-center">Start Your Application</h3>
-            
-            <div className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-foreground mb-2">First Name</label>
-                  <input type="text" className="w-full px-4 py-3 border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your first name" />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-foreground mb-2">Last Name</label>
-                  <input type="text" className="w-full px-4 py-3 border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your last name" />
-                </div>
-              </div>
-              
-              <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">Email Address</label>
-                <input type="email" className="w-full px-4 py-3 border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your email" />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">Phone Number</label>
-                <input type="tel" className="w-full px-4 py-3 border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your phone number" />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">Program of Interest</label>
-                <select className="w-full px-4 py-3 border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent">
-                  <option>Select a program</option>
-                  <option>Aviation Management</option>
-                  <option>Cabin Crew Training</option>
-                  <option>Ground Services Training</option>
-                  <option>Customer Service Training</option>
-                  <option>Pilot Training</option>
-                  <option>Aviation Security</option>
-                </select>
-              </div>
-              
-              <Button className="w-full btn-hero">
-                Submit Application
-              </Button>
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold text-foreground">Start Your Application</h3>
+              {!isSubmitted && (
+                <p className="text-sm text-muted-foreground mt-2">
+                  Fill in your details below and we'll contact you within 24 hours
+                </p>
+              )}
             </div>
+            
+            {isSubmitted ? (
+              <div className="text-center py-8">
+                <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                <h4 className="text-xl font-bold text-green-600 mb-2">Application Submitted Successfully!</h4>
+                <p className="text-muted-foreground mb-4">
+                  Thank you for your interest! We've received your application and will contact you soon.
+                </p>
+                <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
+                  <Mail className="w-4 h-4" />
+                  <span>Confirmation sent to your email</span>
+                </div>
+              </div>
+            ) : (
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <FormField
+                      control={form.control}
+                      name="firstName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>First Name *</FormLabel>
+                          <FormControl>
+                            <Input 
+                              placeholder="Enter your first name" 
+                              className="px-3 md:px-4 py-2 md:py-3 rounded-xl text-sm md:text-base"
+                              {...field} 
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="lastName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Last Name *</FormLabel>
+                          <FormControl>
+                            <Input 
+                              placeholder="Enter your last name" 
+                              className="px-3 md:px-4 py-2 md:py-3 rounded-xl text-sm md:text-base"
+                              {...field} 
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email Address *</FormLabel>
+                        <FormControl>
+                          <Input 
+                            type="email" 
+                            placeholder="Enter your email address" 
+                            className="px-3 md:px-4 py-2 md:py-3 rounded-xl text-sm md:text-base"
+                            {...field} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Phone Number *</FormLabel>
+                        <FormControl>
+                          <Input 
+                            type="tel" 
+                            placeholder="Enter your phone number" 
+                            className="px-3 md:px-4 py-2 md:py-3 rounded-xl text-sm md:text-base"
+                            {...field} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="program"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Program of Interest *</FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="px-4 py-3 rounded-xl">
+                              <SelectValue placeholder="Select a program" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="aviation-management">Aviation Management</SelectItem>
+                            <SelectItem value="cabin-crew-training">Cabin Crew Training</SelectItem>
+                            <SelectItem value="ground-services-training">Ground Services Training</SelectItem>
+                            <SelectItem value="customer-service-training">Customer Service Training</SelectItem>
+                            <SelectItem value="pilot-training">Pilot Training</SelectItem>
+                            <SelectItem value="aviation-security">Aviation Security</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <Button 
+                    type="submit" 
+                    className="w-full btn-hero"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Submitting Application...
+                      </>
+                    ) : (
+                      "Submit Application"
+                    )}
+                  </Button>
+                </form>
+              </Form>
+            )}
             
             <div className="mt-6 pt-6 border-t border-border text-center">
               <p className="text-sm text-muted-foreground">
