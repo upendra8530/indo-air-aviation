@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-const sharp = require('sharp');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const assetsDir = path.join(__dirname, '../src/assets');
 const publicDir = path.join(__dirname, '../public');
@@ -130,9 +133,11 @@ async function optimizeAllImages() {
   }
 }
 
-// Check if sharp is installed
+// Check if sharp is installed and import it
+let sharp;
 try {
-  require.resolve('sharp');
+  const sharpModule = await import('sharp');
+  sharp = sharpModule.default;
 } catch (error) {
   console.error('❌ Sharp is not installed. Please run: npm install sharp --save-dev');
   process.exit(1);

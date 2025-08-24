@@ -23,7 +23,7 @@ Allow: /
 Crawl-delay: 2
 
 # Sitemap location
-Sitemap: /sitemap.xml
+Sitemap: https://upendra8530.github.io/indo-air-aviation/sitemap.xml
 
 # Disallow crawling of certain file types if any (none for this site)
 # Allow indexing of all images and media
