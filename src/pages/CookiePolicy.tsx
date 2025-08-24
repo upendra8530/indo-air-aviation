@@ -7,7 +7,7 @@ const CookiePolicy = () => {
     title: "Cookie Policy - Indo Air Aviation Academy | Website Cookie Usage",
     description: "Learn about how Indo Air Aviation Academy uses cookies on our website. Cookie types, preferences, and opt-out options for our aviation training portal.",
     keywords: "Indo Air Aviation cookie policy, website cookies, privacy preferences, tracking cookies, analytics cookies",
-    canonical: "https://upendra8530.github.io/indo-air-aviation/cookie-policy"
+    canonical: "https://indoaviationacademy.com/cookie-policy"
   });
 
   return (

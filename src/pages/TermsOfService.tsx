@@ -7,7 +7,7 @@ const TermsOfService = () => {
     title: "Terms of Service - Indo Air Aviation Academy | Training Terms & Conditions",
     description: "Read the terms and conditions for Indo Air Aviation Academy's aviation training programs. Enrollment requirements, refund policy, and student responsibilities.",
     keywords: "Indo Air Aviation terms of service, aviation training terms, enrollment policy, refund policy, student agreement",
-    canonical: "https://upendra8530.github.io/indo-air-aviation/terms-of-service"
+    canonical: "https://indoaviationacademy.com/terms-of-service"
   });
 
   return (

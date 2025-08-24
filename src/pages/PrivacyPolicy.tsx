@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
     title: "Privacy Policy - Indo Air Aviation Academy | Data Protection & Privacy Rights",
     description: "Read Indo Air Aviation Academy's comprehensive privacy policy. Learn how we collect, use, and protect your personal information for aviation training services.",
     keywords: "Indo Air Aviation privacy policy, data protection, personal information, aviation training privacy, student data security",
-    canonical: "https://upendra8530.github.io/indo-air-aviation/privacy-policy"
+    canonical: "https://indoaviationacademy.com/privacy-policy"
   });
 
   return (
