@@ -1,11 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import logoImage from "@/assets/indo-air-aviation-logo-removebg-preview.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,13 +20,28 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Navigation function that works from any page
+  const navigateToSection = (sectionId: string) => {
+    // Close mobile menu if open
+    setIsMenuOpen(false);
+    
+    // If we're not on the homepage, navigate to homepage first
+    if (location.pathname !== '/') {
+      navigate('/', { replace: true });
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        scrollToElement(sectionId);
+      }, 100);
+    } else {
+      // We're already on homepage, just scroll
+      scrollToElement(sectionId);
+    }
+  };
+
   // Smooth scroll function
-  const scrollToSection = (sectionId: string) => {
+  const scrollToElement = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      // Close mobile menu if open
-      setIsMenuOpen(false);
-      
       // Calculate offset for fixed header
       const headerHeight = 64; // 16 * 4 = 64px (h-16)
       const elementPosition = element.offsetTop - headerHeight;
@@ -49,39 +67,39 @@ const Header = () => {
             <img 
               src={logoImage} 
               alt="Indo Air Aviation Academy Logo" 
-              className="h-[80px] sm:h-[100px] md:h-[120px] lg:h-[160px] w-auto object-contain transition-all duration-300 relative z-50 drop-shadow-lg"
-              
+              className="h-[80px] sm:h-[100px] md:h-[120px] lg:h-[160px] w-auto object-contain transition-all duration-300 relative z-50 drop-shadow-lg cursor-pointer hover:scale-105"
+              onClick={() => navigateToSection('home')}
             />
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-4 lg:space-x-8">
             <button 
-              onClick={() => scrollToSection('home')} 
+              onClick={() => navigateToSection('home')} 
               className="text-white transition-colors font-medium cursor-pointer text-sm lg:text-base hover:text-yellow-300"
             >
               Home
             </button>
             <button 
-              onClick={() => scrollToSection('about')} 
+              onClick={() => navigateToSection('about')} 
               className="text-white transition-colors font-medium cursor-pointer text-sm lg:text-base hover:text-yellow-300"
             >
               About
             </button>
             <button 
-              onClick={() => scrollToSection('programs')} 
+              onClick={() => navigateToSection('programs')} 
               className="text-white transition-colors font-medium cursor-pointer text-sm lg:text-base hover:text-yellow-300"
             >
               Programs
             </button>
             <button 
-              onClick={() => scrollToSection('testimonials')} 
+              onClick={() => navigateToSection('testimonials')} 
               className="text-white transition-colors font-medium cursor-pointer text-sm lg:text-base hover:text-yellow-300"
             >
               Testimonials
             </button>
             <button 
-              onClick={() => scrollToSection('contact')} 
+              onClick={() => navigateToSection('contact')} 
               className="text-white transition-colors font-medium cursor-pointer text-sm lg:text-base hover:text-yellow-300"
             >
               Contact
@@ -117,31 +135,31 @@ const Header = () => {
           <div className="md:hidden py-4 border-t border-border/50 bg-primary/95 backdrop-blur-sm">
             <nav className="flex flex-col space-y-4">
               <button 
-                onClick={() => scrollToSection('home')} 
+                onClick={() => navigateToSection('home')} 
                 className="text-white transition-colors font-medium py-3 text-left cursor-pointer hover:text-yellow-300 active:text-yellow-400 text-base"
               >
                 Home
               </button>
               <button 
-                onClick={() => scrollToSection('about')} 
+                onClick={() => navigateToSection('about')} 
                 className="text-white transition-colors font-medium py-3 text-left cursor-pointer hover:text-yellow-300 active:text-yellow-400 text-base"
               >
                 About
               </button>
               <button 
-                onClick={() => scrollToSection('programs')} 
+                onClick={() => navigateToSection('programs')} 
                 className="text-white transition-colors font-medium py-3 text-left cursor-pointer hover:text-yellow-300 active:text-yellow-400 text-base"
               >
                 Programs
               </button>
               <button 
-                onClick={() => scrollToSection('testimonials')} 
+                onClick={() => navigateToSection('testimonials')} 
                 className="text-white transition-colors font-medium py-3 text-left cursor-pointer hover:text-yellow-300 active:text-yellow-400 text-base"
               >
                 Testimonials
               </button>
               <button 
-                onClick={() => scrollToSection('contact')} 
+                onClick={() => navigateToSection('contact')} 
                 className="text-white transition-colors font-medium py-3 text-left cursor-pointer hover:text-yellow-300 active:text-yellow-400 text-base"
               >
                 Contact

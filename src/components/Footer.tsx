@@ -1,8 +1,19 @@
 
 import { Twitter, Facebook, Linkedin, Instagram, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import logoImage from "@/assets/indo-air-aviation-logo-removebg-preview.png";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  
+  const navigateToHome = () => {
+    navigate('/', { replace: true });
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+  };
+
   return (
     <footer className="bg-navy-blue text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
@@ -10,8 +21,8 @@ const Footer = () => {
           {/* Company Info */}
           <div className="md:col-span-1">
             <div className="flex items-center mb-3 md:mb-4">
-              <img src={logoImage} alt="Indo Air Aviation Academy Logo" className="h-12 md:h-16 w-auto object-contain mr-3 md:mr-4" />
-              <h3 className="text-lg md:text-xl font-bold text-white">
+              <img src={logoImage} alt="Indo Air Aviation Academy Logo" className="h-12 md:h-16 w-auto object-contain mr-3 md:mr-4 cursor-pointer hover:scale-105 transition-transform duration-300" onClick={navigateToHome} />
+              <h3 className="text-lg md:text-xl font-bold text-white cursor-pointer hover:text-yellow-300 transition-colors duration-300" onClick={navigateToHome}>
                 Indo Air Aviation Academy
               </h3>
             </div>
@@ -112,9 +123,27 @@ const Footer = () => {
             © 2024 Indo Air Aviation Academy. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm text-white/60">
-            <a href="#" className="hover:text-white transition-all duration-300 hover:translate-y-[-1px] animated-underline">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-all duration-300 hover:translate-y-[-1px] animated-underline">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-all duration-300 hover:translate-y-[-1px] animated-underline">Cookie Policy</a>
+            <Link 
+              to="/privacy-policy" 
+              className="hover:text-white transition-all duration-300 hover:translate-y-[-1px] animated-underline"
+              onClick={() => setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100)}
+            >
+              Privacy Policy
+            </Link>
+            <Link 
+              to="/terms-of-service" 
+              className="hover:text-white transition-all duration-300 hover:translate-y-[-1px] animated-underline"
+              onClick={() => setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100)}
+            >
+              Terms of Service
+            </Link>
+            <Link 
+              to="/cookie-policy" 
+              className="hover:text-white transition-all duration-300 hover:translate-y-[-1px] animated-underline"
+              onClick={() => setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100)}
+            >
+              Cookie Policy
+            </Link>
           </div>
         </div>
       </div>

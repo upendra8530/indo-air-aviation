@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import OptimizedImage from "./OptimizedImage";
 import heroImage from "@/assets/hero-aviation.jpg";
 
 const HeroSection = () => {
@@ -6,10 +7,15 @@ const HeroSection = () => {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden md:pt-[240px] pt-[150px] md:pb-[80px] pb-[40px]">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="Aviation training students and aircraft" 
+        <OptimizedImage
+          src={heroImage}
+          alt="Aviation training students and aircraft"
           className="w-full h-full object-cover"
+          priority={true}
+          loading="eager"
+          width={1920}
+          height={1080}
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/60"></div>
       </div>

@@ -6,10 +6,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run optimize:images && vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
+    "optimize:images": "node scripts/optimize-images.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -78,6 +79,7 @@
     "gh-pages": "^6.3.0",
     "globals": "^15.15.0",
     "postcss": "^8.5.6",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
