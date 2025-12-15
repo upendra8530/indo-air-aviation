@@ -110,7 +110,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-2 xl:space-x-4">
             <div className="flex items-center space-x-2 text-sm text-white">
               <Phone className="w-4 h-4 text-white" />
-              <span className="text-white">7727057928</span>
+              <span className="text-white">8052277652</span>
             </div>
             <Button 
               size="sm" 
@@ -167,7 +167,7 @@ const Header = () => {
               <div className="pt-4 border-t border-border/50">
                 <div className="flex items-center space-x-2 text-sm text-white mb-3">
                   <Phone className="w-4 h-4 text-white" />
-                  <span className="text-white">7727057928</span>
+                  <span className="text-white">8052277652</span>
                 </div>
                 <Button 
                   size="sm" 

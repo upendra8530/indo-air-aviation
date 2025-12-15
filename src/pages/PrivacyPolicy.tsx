@@ -146,7 +146,7 @@ const PrivacyPolicy = () => {
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="font-medium">Indo Air Aviation Academy</p>
                 <p>Email: Indoairaviation107@gmail.com</p>
-                <p>Phone: +91-7727057928</p>
+                <p>Phone: +91-8052277652</p>
                 <p>Address: 1st floor, Sayaji Plaza, in front of Bhandari Hospital near Sayaji Hotel, Indore, Madhya Pradesh 452001</p>
               </div>
             </section>
