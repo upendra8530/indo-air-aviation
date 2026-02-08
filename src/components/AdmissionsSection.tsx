@@ -89,7 +89,7 @@ const AdmissionsSection = () => {
       console.error("Submission error:", error);
       toast({
         title: "Submission Failed",
-        description: "Something went wrong. Please try again or call us at +91-8052277652.",
+        description: "Something went wrong. Please try again or call us at +91-9257204144.",
         variant: "destructive",
       });
     } finally {
@@ -295,7 +295,7 @@ const AdmissionsSection = () => {
             <div className="mt-6 pt-6 border-t border-border text-center">
               <p className="text-sm text-muted-foreground">
                 Need help? Contact our admissions team at{" "}
-                <a href="tel:+91-8052277652" className="text-primary font-semibold hover:underline"> +91-8052277652 </a>
+                <a href="tel:+91-9257204144" className="text-primary font-semibold hover:underline"> +91-9257204144 </a>
               </p>
             </div>
           </div>
